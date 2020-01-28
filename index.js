@@ -102,10 +102,10 @@ Baby.prototype.play = function(){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. The Glodal this keyword refers to the window object, so everything. 
+  2. Implicit using of the keyword lets us used when the function is invoked and refers to whatever is to the left of the keyword.
+  3. New binding the of the key is used when you make a new object out of the constructor function
+  4. explicit bind is done using the .call or .apply and this will be whatever the first arguement that is passed through the .call or apply. 
 */
 
 
