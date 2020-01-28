@@ -81,6 +81,10 @@ Car.prototype.fill = function (gallons){
   this.tank += gallons
   return this.tank
 }
+Car.prototype.drive = function(d){
+  this.odometer += d
+  return this.odometer
+}
 
 /*
   TASK 3
