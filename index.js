@@ -39,8 +39,22 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+this.name = name;
+this.age = age;
+this.stomach = [];
+}
+Person.prototype.eat = function(items){
+ if (this.stomach.length < 10)
+   {this.stomach.push(items)}
+   
+};
+Person.prototype.poop = function (item){
+  if (this.stomach.length >= 10){
+    this.stomach.splice(0, this.stomach.length)}
+}
+Person.prototype.toString = function(item){
+  return `${this.name}, ${this.age}`
 }
 
 /*
@@ -57,8 +71,19 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+this.model = model;
+this.milesPerGallon = milesPerGallon;
+this.tank = 0;
+this.odometer = 0;
+}
+Car.prototype.fill = function (gallons){
+  this.tank += gallons
+  return this.tank
+}
+Car.prototype.drive = function(d){
+  this.odometer += d
+  return this.odometer
 }
 
 /*
@@ -68,18 +93,23 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+this.name = name;
+this.age = age;
+this.favoriteToy = favoriteToy;
 }
-
+Baby.prototype = Object.create(Person.prototype)
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`
+}
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. The Glodal this keyword refers to the window object, so everything. 
+  2. Implicit using of the keyword lets us used when the function is invoked and refers to whatever is to the left of the keyword.
+  3. New binding the of the key is used when you make a new object out of the constructor function
+  4. explicit bind is done using the .call or .apply and this will be whatever the first arguement that is passed through the .call or apply. 
 */
 
 
